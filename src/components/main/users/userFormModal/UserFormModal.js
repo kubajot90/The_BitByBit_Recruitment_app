@@ -1,9 +1,20 @@
 import { BsArrowLeft } from "react-icons/bs";
 import classes from "./UserFormModal.module.css";
 
-const UserFormModal = ({ toggleAddModal, buttonText, title }) => {
-  const submitHandler = () => {
-    return;
+const UserFormModal = ({
+  formDataHandler,
+  toggleAddModal,
+  buttonText,
+  title,
+}) => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const searchformData = new FormData(form);
+    formDataHandler(searchformData);
+
+    toggleAddModal();
   };
 
   return (
@@ -20,7 +31,7 @@ const UserFormModal = ({ toggleAddModal, buttonText, title }) => {
           <span className={classes.title}>{title}</span>
         </div>
         <input
-          name="firstName"
+          name="firstname"
           type="text"
           pattern="[a-zA-Z]+"
           className={classes.input}
@@ -28,7 +39,7 @@ const UserFormModal = ({ toggleAddModal, buttonText, title }) => {
           required
         ></input>
         <input
-          name="surname"
+          name="lastname"
           type="text"
           pattern="[a-zA-Z]+"
           className={classes.input}
@@ -50,6 +61,18 @@ const UserFormModal = ({ toggleAddModal, buttonText, title }) => {
           placeholder="Country"
           required
         ></input>
+        <select
+          name="gender"
+          className={classes.select}
+          required
+          defaultValue=""
+        >
+          <option value="" disabled hidden>
+            Gender
+          </option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
         <button type="submit" className={classes.submitButton}>
           {buttonText}
         </button>

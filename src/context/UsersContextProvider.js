@@ -20,9 +20,14 @@ const UsersContextProvider = ({ children }) => {
     setUsersList((prev) => [...prev, user]);
   };
 
+  const deleteUser = (id) => {
+    setUsersList((prev) => (prev = prev.filter((user) => user.id !== id)));
+  };
+
   const providerValue = {
     usersList,
     addUser,
+    deleteUser,
   };
 
   return (

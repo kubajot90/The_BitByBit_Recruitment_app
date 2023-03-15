@@ -16,6 +16,7 @@
   align-items: center;
   padding: 2rem 3rem 3rem 3rem;
   width: 35%;
+  min-width: 340px;
   background-color: rgb(50, 50, 56);
   color: white;
   box-shadow: rgba(70, 83, 158, 0.6) 0px 5px 15px;
@@ -49,6 +50,7 @@
 }
 
 .input,
+.select,
 .submitButton {
   padding: 0.8rem;
   width: 100%;
@@ -56,17 +58,33 @@
   font-family: "Montserrat";
 }
 
-.input {
+.input,
+.select {
   margin-bottom: 0.6rem;
   border-bottom: 1.5px solid rgba(255, 255, 255, 0.3);
   background-color: transparent;
-  color: white;
+  color: rgb(255, 255, 255);
+}
+
+select:invalid {
+  color: rgb(180, 180, 180);
+}
+
+option {
+  color: rgb(180, 180, 180);
+  background-color: rgb(255, 255, 255);
+}
+
+.input::placeholder {
+  opacity: 1;
+  color: rgb(180, 180, 180);
 }
 
 .submitButton {
   margin-top: 1rem;
+  border: none;
   color: rgb(255, 255, 255);
   font-weight: 500;
-  background-color: #2ebaef;
   cursor: pointer;
+  background-color: var(--primary-blue);
 }

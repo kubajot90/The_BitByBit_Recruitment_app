@@ -1,4 +1,4 @@
-import { UsersContextProvider } from "./context/UserListContextProvider";
+import { UsersContextProvider } from "./context/UsersContextProvider";
 import SideBar from "./components/sideBar/SideBar";
 import TopBar from "./components/topBar/TopBar";
 import Main from "./components/main/Main";

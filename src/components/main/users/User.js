@@ -1,13 +1,21 @@
-import { FcBusinesswoman } from "react-icons/fc";
+import { useContext } from "react";
+import { usersContext } from "../../../context/UsersContextProvider";
 import { IoPeople } from "react-icons/io5";
 import classes from "./User.module.css";
 
 function User(props) {
-  const { firstname, lastname, gender, email, birthday, address } = props.data;
+  const { deleteUser } = useContext(usersContext);
+  const { firstname, lastname, gender, birthday, address, id } = props.data;
 
   const age = Math.floor(
     (new Date() - new Date(birthday).getTime()) / 3.15576e10
   );
+
+  const editHandler = () => {};
+
+  const deleteHandler = () => {
+    deleteUser(id);
+  };
 
   return (
     <div className={classes.User}>
@@ -30,8 +38,15 @@ function User(props) {
         <span className={classes.title}>Country</span>
         <span className={classes.subTitle}>{address.country}</span>
       </div>
-      <button className={classes.buttonEdit}>Edit</button>
-      <button className={classes.buttonDelete}>Delete</button>
+      <button onClick={editHandler} className={`${classes.buttonEdit} button`}>
+        Edit
+      </button>
+      <button
+        onClick={deleteHandler}
+        className={`${classes.buttonDelete} button`}
+      >
+        Delete
+      </button>
     </div>
   );
 }

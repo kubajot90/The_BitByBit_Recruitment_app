@@ -18,19 +18,28 @@ body {
   font-size: 15px;
 }
 
-button {
+.button {
   padding: 0.7rem 2rem;
   margin-right: 0.5rem;
-  border: none;
+
+  /* border: none;
   color: rgb(255, 255, 255);
+  background-color: var(--primary-blue); */
+
   font-weight: 500;
-  background-color: var(--primary-blue);
   cursor: pointer;
   transition: 0.2s;
+
+  border-radius: 20px;
+  background-color: transparent;
+  border: 0.11rem solid var(--primary-blue);
+  color: var(--primary-blue);
 }
 
-button:hover {
-  background-color: #2cb2e3;
+.button:hover {
+  /* background-color: #2cb2e3; */
+  background-color: var(--primary-blue);
+  color: white;
 }
 
 .container {
