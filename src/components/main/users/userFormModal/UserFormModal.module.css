@@ -1,0 +1,72 @@
+.UserFormModal {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffffde;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 3rem 3rem 3rem;
+  width: 35%;
+  background-color: rgb(50, 50, 56);
+  color: white;
+  box-shadow: rgba(70, 83, 158, 0.6) 0px 5px 15px;
+}
+
+.header {
+  display: flex;
+  position: relative;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.backIcon {
+  margin-right: auto;
+  color: white;
+  font-size: 1.4rem;
+}
+
+.title {
+  font-size: 1.2rem;
+}
+
+.input,
+.submitButton {
+  padding: 0.8rem;
+  width: 100%;
+  border: none;
+  font-family: "Montserrat";
+}
+
+.input {
+  margin-bottom: 0.6rem;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+  color: white;
+}
+
+.submitButton {
+  margin-top: 1rem;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  background-color: #2ebaef;
+  cursor: pointer;
+}
