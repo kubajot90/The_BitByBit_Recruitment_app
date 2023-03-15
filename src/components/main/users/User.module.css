@@ -1,0 +1,77 @@
+.User {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 0.08rem solid var(--secondary-grey);
+}
+
+.category {
+  flex-basis: 20%;
+  min-width: 6rem;
+  text-align: center;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  border-radius: 50%;
+  min-width: 3.3rem;
+  min-height: 3.3rem;
+  border: 0.1rem solid var(--secondary-grey);
+}
+
+.icon {
+  font-size: 2rem;
+  color: #2d247c;
+}
+
+.categoryName {
+  min-width: 10rem;
+}
+
+.title {
+  display: block;
+  font-weight: 700;
+  color: rgb(123, 128, 154);
+}
+
+.subTitle {
+  display: block;
+  margin-top: 0.3rem;
+  font-weight: 500;
+  color: rgb(52, 71, 103);
+}
+
+.User button {
+  padding: 0.2rem 0.8rem;
+  box-shadow: rgba(70, 83, 158, 0.176) 0px 4px 7px;
+  border-radius: 10px;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+}
+
+.buttonDelete {
+  background-color: transparent;
+  border: 0.1rem solid rgba(221, 0, 0, 0.815);
+  color: rgba(221, 0, 0, 0.815);
+}
+
+.buttonDelete:hover {
+  background-color: rgb(221, 0, 0);
+  color: white;
+}
+
+.buttonEdit {
+  margin-left: 1rem;
+  background-color: transparent;
+  border: 0.1rem solid rgba(95, 43, 226, 0.834);
+  color: rgba(95, 43, 226, 0.834);
+}
+
+.buttonEdit:hover {
+  margin-left: 1rem;
+  background-color: rgb(95, 43, 226);
+  color: white;
+}

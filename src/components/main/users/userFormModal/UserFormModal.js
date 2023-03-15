@@ -43,6 +43,13 @@ const UserFormModal = ({ toggleAddModal, buttonText, title }) => {
           placeholder="Birthday (YYYY-MM-DD)"
           required
         ></input>
+        <input
+          name="country"
+          type="text"
+          className={classes.input}
+          placeholder="Country"
+          required
+        ></input>
         <button type="submit" className={classes.submitButton}>
           {buttonText}
         </button>
