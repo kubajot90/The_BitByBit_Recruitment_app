@@ -11,7 +11,10 @@ function User(props) {
     (new Date() - new Date(birthday).getTime()) / 3.15576e10
   );
 
-  const editHandler = () => {};
+  const editHandler = () => {
+    props.editUserId(id);
+    props.toggleModal();
+  };
 
   const deleteHandler = () => {
     deleteUser(id);

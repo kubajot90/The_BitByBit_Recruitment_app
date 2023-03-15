@@ -1,36 +1,47 @@
+import { useContext } from "react";
+import { usersContext } from "../../../../context/UsersContextProvider";
 import { BsArrowLeft } from "react-icons/bs";
 import classes from "./UserFormModal.module.css";
 
 const UserFormModal = ({
-  formDataHandler,
-  toggleAddModal,
+  addNewUser,
+  onEditUser,
+  toggleModal,
   buttonText,
   title,
+  editUserId,
 }) => {
+  const { usersList } = useContext(usersContext);
+
+  const currentUserData = editUserId
+    ? usersList.filter((user) => user.id === editUserId)
+    : "";
+
+  const { firstname, lastname, birthday, gender, address } = currentUserData
+    ? currentUserData[0]
+    : "";
+
   const submitHandler = (e) => {
     e.preventDefault();
 
     const form = e.target;
     const searchformData = new FormData(form);
-    formDataHandler(searchformData);
+    addNewUser(searchformData);
 
-    toggleAddModal();
+    toggleModal();
   };
 
   return (
     <div className={classes.UserFormModal}>
       <form onSubmit={submitHandler} className={classes.form}>
         <div className={classes.header}>
-          <button
-            type="reset"
-            onClick={toggleAddModal}
-            className={classes.backButton}
-          >
+          <button onClick={toggleModal} className={classes.backButton}>
             <BsArrowLeft className={classes.backIcon} />
           </button>
           <span className={classes.title}>{title}</span>
         </div>
         <input
+          defaultValue={currentUserData ? firstname : ""}
           name="firstname"
           type="text"
           pattern="[a-zA-Z]+"
@@ -39,6 +50,7 @@ const UserFormModal = ({
           required
         ></input>
         <input
+          defaultValue={currentUserData ? lastname : ""}
           name="lastname"
           type="text"
           pattern="[a-zA-Z]+"
@@ -47,6 +59,7 @@ const UserFormModal = ({
           required
         ></input>
         <input
+          defaultValue={currentUserData ? birthday : ""}
           name="birthday"
           type="text"
           pattern="\d{4}-\d{2}-\d{2}"
@@ -55,6 +68,7 @@ const UserFormModal = ({
           required
         ></input>
         <input
+          defaultValue={currentUserData ? address.country : ""}
           name="country"
           type="text"
           className={classes.input}
@@ -62,10 +76,10 @@ const UserFormModal = ({
           required
         ></input>
         <select
+          defaultValue={currentUserData ? gender : ""}
           name="gender"
           className={classes.select}
           required
-          defaultValue=""
         >
           <option value="" disabled hidden>
             Gender
