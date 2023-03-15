@@ -12,22 +12,31 @@ const Users = () => {
   const [editUserId, setEditUserId] = useState(null);
 
   const addUserHandler = (formData) => {
-    const user = Object.fromEntries(formData.entries());
-    user.id = `${user.lastname}-${user.birthday}`;
-    user.address = { country: user.country };
-    delete user.country;
-
+    // const user = Object.fromEntries(formData.entries());
+    // user.id = `${user.lastname}-${user.birthday}`;
+    // user.address = { country: user.country };
+    // delete user.country;
+    const user = createUser(formData);
     addUser(user);
   };
 
-  const editUserHandler = (formData) => {
+  const editUserHandler = (formData, id) => {
+    // const user = Object.fromEntries(formData.entries());
+    // user.id = `${user.lastname}-${user.birthday}`;
+    // user.address = { country: user.country };
+    // delete user.country;
+    const user = createUser(formData);
+
+    editUser(id, user);
+    editUserIdHandler(null);
+  };
+
+  const createUser = (formData) => {
     const user = Object.fromEntries(formData.entries());
     user.id = `${user.lastname}-${user.birthday}`;
     user.address = { country: user.country };
     delete user.country;
-
-    editUser(user);
-    editUserIdHandler(null);
+    return user;
   };
 
   const toggleModal = (setState) => {
@@ -72,7 +81,7 @@ const Users = () => {
           buttonText="SUBMIT"
           title="Add new user"
           toggleModal={() => toggleModal(setShowAddUser)}
-          addNewUser={addUserHandler}
+          onSubmitForm={addUserHandler}
         />
       )}
       {showEditUser && (
@@ -80,7 +89,7 @@ const Users = () => {
           buttonText="EDIT"
           title="Edit user"
           toggleModal={() => toggleModal(setShowEditUser)}
-          onEditUser={editUserHandler}
+          onSubmitForm={editUserHandler}
           editUserId={editUserId}
         />
       )}

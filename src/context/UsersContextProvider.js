@@ -6,13 +6,22 @@ const UsersContextProvider = ({ children }) => {
   const [usersList, setUsersList] = useState(null);
 
   useEffect(() => {
-    fetch("https://fakerapi.it/api/v1/persons?_quantity=4")
-      .then((response) => response.json())
-      .then((users) => setUsersList(users.data))
-      .catch((error) => alert(error));
+    const data = window.localStorage.getItem("list");
+
+    if (data !== "null" && data !== "[]") {
+      setUsersList(JSON.parse(data));
+    } else {
+      fetch("https://fakerapi.it/api/v1/persons?_quantity=4")
+        .then((response) => response.json())
+        .then((users) => setUsersList(users.data))
+        .catch((error) => alert(error));
+    }
   }, []);
 
   useEffect(() => {
+    if (usersList) {
+      window.localStorage.setItem("list", JSON.stringify(usersList));
+    }
     console.log("userList: ", usersList);
   }, [usersList]);
 
@@ -24,10 +33,16 @@ const UsersContextProvider = ({ children }) => {
     setUsersList((prev) => (prev = prev.filter((user) => user.id !== id)));
   };
 
+  const editUser = (userId, editUser) => {
+    deleteUser(userId);
+    addUser(editUser);
+  };
+
   const providerValue = {
     usersList,
     addUser,
     deleteUser,
+    editUser,
   };
 
   return (

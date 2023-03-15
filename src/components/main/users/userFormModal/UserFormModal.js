@@ -4,7 +4,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import classes from "./UserFormModal.module.css";
 
 const UserFormModal = ({
-  addNewUser,
+  onSubmitForm,
   onEditUser,
   toggleModal,
   buttonText,
@@ -17,7 +17,7 @@ const UserFormModal = ({
     ? usersList.filter((user) => user.id === editUserId)
     : "";
 
-  const { firstname, lastname, birthday, gender, address } = currentUserData
+  const { firstname, lastname, birthday, gender, address, id } = currentUserData
     ? currentUserData[0]
     : "";
 
@@ -26,7 +26,7 @@ const UserFormModal = ({
 
     const form = e.target;
     const searchformData = new FormData(form);
-    addNewUser(searchformData);
+    onSubmitForm(searchformData, id);
 
     toggleModal();
   };
@@ -44,7 +44,7 @@ const UserFormModal = ({
           defaultValue={currentUserData ? firstname : ""}
           name="firstname"
           type="text"
-          pattern="[a-zA-Z]+"
+          pattern="[a-z A-Z']+"
           className={classes.input}
           placeholder="First name"
           required
@@ -53,7 +53,7 @@ const UserFormModal = ({
           defaultValue={currentUserData ? lastname : ""}
           name="lastname"
           type="text"
-          pattern="[a-zA-Z]+"
+          pattern="[a-z A-Z']+"
           className={classes.input}
           placeholder="Surname"
           required
@@ -71,6 +71,7 @@ const UserFormModal = ({
           defaultValue={currentUserData ? address.country : ""}
           name="country"
           type="text"
+          pattern="[a-z A-Z'&]+"
           className={classes.input}
           placeholder="Country"
           required
