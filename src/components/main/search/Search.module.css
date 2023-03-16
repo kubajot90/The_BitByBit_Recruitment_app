@@ -33,6 +33,7 @@
 
 .resultsText {
   display: block;
+  text-align: center;
   font-size: 1.8rem;
   font-weight: 400;
   color: var(--secondary-blue);

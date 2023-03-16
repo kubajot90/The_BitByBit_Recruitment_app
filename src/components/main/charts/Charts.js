@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 import { usersContext } from "../../../context/UsersContextProvider";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import DoughnutChart from "./DoughnutChart";

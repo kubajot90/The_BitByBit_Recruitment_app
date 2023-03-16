@@ -35,7 +35,6 @@ const LineChart = ({ usersList }) => {
       }
     });
     setAge((prev) => (prev = { ...prev, [gender]: ages }));
-    console.log(age);
   };
 
   useEffect(() => {
@@ -56,15 +55,7 @@ const LineChart = ({ usersList }) => {
     },
   };
 
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ];
+  const labels = ["", "", "", "", "", "", ""];
 
   const data = {
     labels,

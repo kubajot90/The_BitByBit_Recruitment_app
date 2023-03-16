@@ -1,2 +1,14 @@
-.Home {
+.userIcon {
+  margin: 0 auto;
+  width: 14vw;
+  height: 14vw;
+}
+
+.cardsWrapper {
+  display: flex;
+}
+
+.searchCard,
+.chartCard {
+  width: 50%;
 }
