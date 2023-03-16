@@ -1,50 +1,34 @@
 import { useState, useContext, useEffect } from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
 import { usersContext } from "../../../context/UsersContextProvider";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import DoughnutChart from "./DoughnutChart";
+import LineChart from "./LineChart";
+import { BsFillPersonVcardFill } from "react-icons/bs";
 import classes from "./Charts.module.css";
 
 function Charts() {
   ChartJS.register(ArcElement, Tooltip, Legend);
+
   const { usersList } = useContext(usersContext);
-  const [gender, setGender] = useState({});
-
-  const genderPercent = () => {
-    const userNumber = usersList.length;
-    const maleNumber = usersList.filter(
-      (user) => user.gender === "male"
-    ).length;
-
-    const malePercent = (100 / userNumber) * maleNumber;
-    const femalePercent = 100 - malePercent;
-    setGender({
-      male: malePercent,
-      female: femalePercent,
-    });
-  };
-
-  useEffect(() => {
-    usersList && genderPercent();
-  }, [usersList]);
-
-  const data = {
-    labels: ["Female", "Male"],
-    datasets: [
-      {
-        label: "Gender",
-        data: [gender.female, gender.male],
-        backgroundColor: ["rgba(255, 99, 132, 0.4)", "rgba(54, 162, 235, 0.4)"],
-        borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
-        borderWidth: 1,
-      },
-    ],
-  };
+  const usersNumber = usersList.length;
 
   return (
     <div className={classes.Charts}>
+      <div className={`container ${classes.doughnutContainer}`}>
+        <DoughnutChart usersList={usersList} />
+      </div>
       <div className={classes.chartsWrapper}>
+        <div className={`container ${classes.detailsContainer}`}>
+          <div className={classes.titleWrapper}>
+            <p className={classes.number}>{usersNumber}</p>
+            <p className={classes.title}>
+              {usersNumber > 1 ? "users" : "user"}
+            </p>
+          </div>
+          <BsFillPersonVcardFill className={classes.icon} />
+        </div>
         <div className={`container ${classes.smallContainer}`}>
-          <Doughnut data={data} />
+          <LineChart usersList={usersList} />
         </div>
       </div>
     </div>

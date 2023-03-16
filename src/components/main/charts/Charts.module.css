@@ -1,6 +1,51 @@
-.smallContainer {
+.Charts {
+  display: flex;
+}
+
+.doughnutContainer {
   width: 50%;
+  margin: 0.4rem;
+}
+
+.smallContainer,
+.detailsContainer {
+  display: flex;
+  height: 50%;
+  margin: 0.4rem;
+}
+
+.detailsContainer {
+  background-color: rgb(98, 43, 226, 0.5);
 }
 
 .chartsWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.number {
+  font-size: 4rem;
+}
+
+.icon {
+  width: 50%;
+  height: 100%;
+  margin-left: auto;
+  color: var(--secondary-blue);
+  color: white;
 }

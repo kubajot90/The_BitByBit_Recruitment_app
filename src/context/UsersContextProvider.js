@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect } from "react";
 const usersContext = createContext();
 
 const UsersContextProvider = ({ children }) => {
-  const [usersList, setUsersList] = useState(null);
+  const [usersList, setUsersList] = useState([]);
 
   useEffect(() => {
     const data = JSON.parse(window.localStorage.getItem("list"));
