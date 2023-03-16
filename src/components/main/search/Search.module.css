@@ -1,2 +1,48 @@
 .Search {
 }
+
+.inputWrapper {
+  position: relative;
+  margin-bottom: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.searchInput {
+  padding: 0.6rem 0.8rem;
+  width: 100%;
+  border-radius: 7px;
+  border: none;
+  background-color: #fff;
+  color: var(--secondary-blue);
+  box-shadow: rgba(0, 0, 0, 0.038) 0px 4px 12px;
+  font-weight: 500;
+  font-family: "Montserrat";
+}
+
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: var(--secondary-blue);
+}
+
+.resultsWrapper {
+  padding: 6rem 0;
+  margin: 0 auto;
+  width: 25%;
+}
+
+.resultsText {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--secondary-blue);
+}
+
+.resultsDivider {
+  display: block;
+  height: 0.3rem;
+  background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+}

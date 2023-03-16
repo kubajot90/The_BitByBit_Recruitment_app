@@ -12,19 +12,11 @@ const Users = () => {
   const [editUserId, setEditUserId] = useState(null);
 
   const addUserHandler = (formData) => {
-    // const user = Object.fromEntries(formData.entries());
-    // user.id = `${user.lastname}-${user.birthday}`;
-    // user.address = { country: user.country };
-    // delete user.country;
     const user = createUser(formData);
     addUser(user);
   };
 
   const editUserHandler = (formData, id) => {
-    // const user = Object.fromEntries(formData.entries());
-    // user.id = `${user.lastname}-${user.birthday}`;
-    // user.address = { country: user.country };
-    // delete user.country;
     const user = createUser(formData);
 
     editUser(user, id);
@@ -43,9 +35,6 @@ const Users = () => {
     setState((prev) => (prev = !prev));
   };
 
-  // const toggleAddModal = () => {
-  //   setShowAddUser((prev) => (prev = !prev));
-  // };
   const editUserIdHandler = (id) => {
     setEditUserId(id);
   };
@@ -63,13 +52,14 @@ const Users = () => {
         </div>
         <div className="container">
           <span className="container-title">Users list</span>
-          <ul className={classes.list}>
+          <ul>
             {usersList &&
               usersList.map((data) => (
                 <User
                   data={data}
                   toggleModal={() => toggleModal(setShowEditUser)}
                   editUserId={editUserIdHandler}
+                  showButtons={true}
                   key={data.id}
                 />
               ))}

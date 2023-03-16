@@ -7,11 +7,12 @@ const UsersContextProvider = ({ children }) => {
 
   useEffect(() => {
     const data = window.localStorage.getItem("list");
+    const usersQuantity = 8;
 
     if (data !== "null" && data !== "[]") {
       setUsersList(JSON.parse(data));
     } else {
-      fetch("https://fakerapi.it/api/v1/persons?_quantity=4")
+      fetch(`https://fakerapi.it/api/v1/persons?_quantity=${usersQuantity}`)
         .then((response) => response.json())
         .then((users) => setUsersList(users.data))
         .catch((error) => alert(error));

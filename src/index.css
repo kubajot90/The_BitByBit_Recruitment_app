@@ -9,7 +9,9 @@
 :root {
   --primary-grey: rgb(107, 107, 107);
   --secondary-grey: rgb(238, 238, 238);
+  --third-grey: rgb(145, 145, 145);
   --primary-blue: #2ebaef;
+  --secondary-blue: #2d247c;
 }
 
 html,
@@ -21,15 +23,9 @@ body {
 .button {
   padding: 0.7rem 2rem;
   margin-right: 0.5rem;
-
-  /* border: none;
-  color: rgb(255, 255, 255);
-  background-color: var(--primary-blue); */
-
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s;
-
   border-radius: 20px;
   background-color: transparent;
   border: 0.11rem solid var(--primary-blue);
@@ -37,7 +33,6 @@ body {
 }
 
 .button:hover {
-  /* background-color: #2cb2e3; */
   background-color: var(--primary-blue);
   color: white;
 }

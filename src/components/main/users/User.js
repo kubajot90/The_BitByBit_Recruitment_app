@@ -6,6 +6,7 @@ import classes from "./User.module.css";
 function User(props) {
   const { deleteUser } = useContext(usersContext);
   const { firstname, lastname, gender, birthday, address, id } = props.data;
+  const { showButtons } = props;
 
   const age = Math.floor(
     (new Date() - new Date(birthday).getTime()) / 3.15576e10
@@ -31,7 +32,7 @@ function User(props) {
       </div>
       <div className={classes.category}>
         <span className={classes.title}>Age</span>
-        <span className={classes.subTitle}>{age}</span>
+        <span className={classes.subTitle}>{age === 0 ? 1 : age}</span>
       </div>
       <div className={classes.category}>
         <span className={classes.title}>Gender</span>
@@ -41,15 +42,22 @@ function User(props) {
         <span className={classes.title}>Country</span>
         <span className={classes.subTitle}>{address.country}</span>
       </div>
-      <button onClick={editHandler} className={`${classes.buttonEdit} button`}>
-        Edit
-      </button>
-      <button
-        onClick={deleteHandler}
-        className={`${classes.buttonDelete} button`}
-      >
-        Delete
-      </button>
+      {showButtons && (
+        <>
+          <button
+            onClick={editHandler}
+            className={`${classes.buttonEdit} button`}
+          >
+            Edit
+          </button>
+          <button
+            onClick={deleteHandler}
+            className={`${classes.buttonDelete} button`}
+          >
+            Delete
+          </button>
+        </>
+      )}
     </div>
   );
 }
