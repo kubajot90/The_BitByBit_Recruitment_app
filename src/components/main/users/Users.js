@@ -27,7 +27,7 @@ const Users = () => {
     // delete user.country;
     const user = createUser(formData);
 
-    editUser(id, user);
+    editUser(user, id);
     editUserIdHandler(null);
   };
 

@@ -5,7 +5,6 @@ import classes from "./UserFormModal.module.css";
 
 const UserFormModal = ({
   onSubmitForm,
-  onEditUser,
   toggleModal,
   buttonText,
   title,

@@ -33,9 +33,15 @@ const UsersContextProvider = ({ children }) => {
     setUsersList((prev) => (prev = prev.filter((user) => user.id !== id)));
   };
 
-  const editUser = (userId, editUser) => {
-    deleteUser(userId);
-    addUser(editUser);
+  const editUser = (editUser, id) => {
+    const editList = usersList.map((user) => {
+      if (user.id === id) {
+        return editUser;
+      } else {
+        return user;
+      }
+    });
+    setUsersList(editList);
   };
 
   const providerValue = {
