@@ -52,7 +52,7 @@ const Users = () => {
         </div>
         <div className="container">
           <span className="container-title">Users list</span>
-          <ul>
+          <ul className={classes.list}>
             {usersList &&
               usersList.map((data) => (
                 <User

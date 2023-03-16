@@ -8,9 +8,9 @@ function User(props) {
   const { firstname, lastname, gender, birthday, address, id } = props.data;
   const { showButtons } = props;
 
-  const age = Math.floor(
-    (new Date() - new Date(birthday).getTime()) / 3.15576e10
-  );
+  // const age = Math.floor(
+  //   (new Date() - new Date(birthday).getTime()) / 3.15576e10
+  // );
 
   const editHandler = () => {
     props.editUserId(id);
@@ -31,8 +31,8 @@ function User(props) {
         <span className={classes.subTitle}>{`${firstname} ${lastname}`}</span>
       </div>
       <div className={classes.category}>
-        <span className={classes.title}>Age</span>
-        <span className={classes.subTitle}>{age === 0 ? 1 : age}</span>
+        <span className={classes.title}>Birthday</span>
+        <span className={classes.subTitle}>{birthday}</span>
       </div>
       <div className={classes.category}>
         <span className={classes.title}>Gender</span>

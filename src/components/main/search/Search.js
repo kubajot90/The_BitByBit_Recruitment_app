@@ -37,21 +37,19 @@ const Search = () => {
         <BiSearchAlt className={classes.inputIcon} />
       </div>
       <div className="container">
-        <ul className={classes.list}>
-          {searchList ? (
-            searchList.map((data) => (
+        {searchList ? (
+          <ul className={classes.list}>
+            <span className="container-title">Searched users</span>
+            {searchList.map((data) => (
               <User data={data} showButtons={false} key={data.id} />
-            ))
-          ) : (
-            <div className={classes.resultsWrapper}>
-              <span className={classes.resultsText}>
-                {/* {!searchList ? "Enter the data" : "No results..."} */}
-                {modalText}
-              </span>
-              <span className={classes.resultsDivider}></span>
-            </div>
-          )}
-        </ul>
+            ))}
+          </ul>
+        ) : (
+          <div className={classes.resultsWrapper}>
+            <span className={classes.resultsText}>{modalText}</span>
+            <span className={classes.resultsDivider}></span>
+          </div>
+        )}
       </div>
     </div>
   );

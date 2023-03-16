@@ -6,16 +6,15 @@ const UsersContextProvider = ({ children }) => {
   const [usersList, setUsersList] = useState(null);
 
   useEffect(() => {
-    const data = window.localStorage.getItem("list");
-    const usersQuantity = 8;
+    const data = JSON.parse(window.localStorage.getItem("list"));
 
-    if (data !== "null" && data !== "[]") {
-      setUsersList(JSON.parse(data));
-    } else {
-      fetch(`https://fakerapi.it/api/v1/persons?_quantity=${usersQuantity}`)
+    if (!data || !data.length) {
+      fetch(`https://fakerapi.it/api/v1/persons?_quantity=8`)
         .then((response) => response.json())
         .then((users) => setUsersList(users.data))
         .catch((error) => alert(error));
+    } else {
+      setUsersList(data);
     }
   }, []);
 
@@ -23,7 +22,6 @@ const UsersContextProvider = ({ children }) => {
     if (usersList) {
       window.localStorage.setItem("list", JSON.stringify(usersList));
     }
-    console.log("userList: ", usersList);
   }, [usersList]);
 
   const addUser = (user) => {
