@@ -19,9 +19,7 @@ const UsersContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (usersList) {
-      window.localStorage.setItem("list", JSON.stringify(usersList));
-    }
+    window.localStorage.setItem("list", JSON.stringify(usersList));
   }, [usersList]);
 
   const addUser = (user) => {
