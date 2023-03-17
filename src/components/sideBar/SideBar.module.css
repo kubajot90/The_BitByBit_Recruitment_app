@@ -46,3 +46,13 @@
 .navButton:hover {
   background-color: rgba(205, 205, 205, 0.213);
 }
+
+@media (max-width: 730px) {
+  .icon {
+    display: none;
+  }
+
+  .iconArrow {
+    display: none;
+  }
+}

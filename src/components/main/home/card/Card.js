@@ -8,7 +8,7 @@ function Card({ icon, title, subtitle, navigatePath, width, backgroundImage }) {
     <div
       className={`container ${classes.Card}`}
       style={{
-        width: `${width}`,
+        // width: `${width}`,
         backgroundImage: `${backgroundImage}`,
       }}
     >

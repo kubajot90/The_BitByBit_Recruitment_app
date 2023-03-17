@@ -6,9 +6,16 @@
 
 .cardsWrapper {
   display: flex;
+  justify-content: space-between;
 }
 
 .searchCard,
 .chartCard {
   width: 50%;
+}
+
+@media (max-width: 730px) {
+  .cardsWrapper {
+    flex-direction: column;
+  }
 }

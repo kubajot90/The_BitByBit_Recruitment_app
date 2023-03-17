@@ -1,13 +1,12 @@
 .inputWrapper {
   position: relative;
-  margin-bottom: 0.8rem;
-  margin-bottom: 1.6rem;
+  margin: 0 0.5rem 1.6rem 0.5rem;
 }
 
 .searchInput {
-  padding: 0.6rem 0.8rem;
+  padding: 0.7rem 0.8rem;
   width: 100%;
-  border-radius: 7px;
+  border-radius: 10px;
   border: none;
   background-color: #fff;
   color: var(--secondary-blue);
