@@ -54,14 +54,14 @@
   .Charts {
     flex-direction: column;
   }
-  .doughnutContainer {
-    width: 100%;
-  }
+
   .smallContainer,
-  .detailsContainer {
-    height: 100%;
-  }
-  .chartsWrapper {
+  .detailsContainer,
+  .chartsWrapper,
+  .doughnutContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
   }
 }
