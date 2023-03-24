@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { usersContext } from "../../../context/UsersContextProvider";
 import User from "../users/User";
 import { BiSearchAlt } from "react-icons/bi";

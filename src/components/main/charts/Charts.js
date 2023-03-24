@@ -1,14 +1,11 @@
 import { useContext } from "react";
 import { usersContext } from "../../../context/UsersContextProvider";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import DoughnutChart from "./DoughnutChart";
 import LineChart from "./LineChart";
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import classes from "./Charts.module.css";
 
 function Charts() {
-  ChartJS.register(ArcElement, Tooltip, Legend);
-
   const { usersList } = useContext(usersContext);
   const usersNumber = usersList.length;
 

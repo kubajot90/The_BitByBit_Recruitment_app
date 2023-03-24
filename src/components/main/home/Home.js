@@ -20,14 +20,12 @@ function Home() {
           icon={<FcSearch className={classes.userIcon} />}
           title="Search"
           subtitle="Enter data and find the user"
-          width="47%"
         />
         <Card
           navigatePath="charts"
           icon={<FcPieChart className={classes.userIcon} />}
           title="Charts"
           subtitle="Check your user charts"
-          width="47%"
         />
       </div>
     </div>

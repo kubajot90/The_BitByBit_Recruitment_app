@@ -2,7 +2,7 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   top: 0;
   left: 0;
   width: 100vw;
@@ -14,12 +14,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10vmin;
   padding: 2rem 3rem 3rem 3rem;
   width: 35%;
   min-width: 340px;
   background-color: rgb(50, 50, 56);
   color: white;
   box-shadow: rgba(70, 83, 158, 0.6) 0px 5px 15px;
+  overflow-y: scroll;
 }
 
 .header {
@@ -78,6 +80,7 @@ option {
 .input::placeholder {
   opacity: 1;
   color: rgb(180, 180, 180);
+  font-size: 1rem;
 }
 
 .submitButton {
@@ -87,4 +90,12 @@ option {
   font-weight: 500;
   cursor: pointer;
   background-color: var(--primary-blue);
+}
+
+@media (max-width: 340px) {
+  .form {
+    margin-top: 2.2rem;
+    width: 100%;
+    min-width: auto;
+  }
 }
